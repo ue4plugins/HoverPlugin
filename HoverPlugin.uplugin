@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "HoverPlugin",
+	"Description": "Demonstrates how to convert a BP component to a C++ component (as presented by Zak Parrish and Gerke Max Preussner at GDCE Europe 2015).",
+	"Category": "GDCE15",
+	"CreatedBy": "Epic Games, Inc.",
+	"CreatedByURL": "http://epicgames.com",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "https://forums.unrealengine.com/showthread.php?81573-GDCE-2015-Blueprint-Components-to-C",
+	"Modules": [
+		{
+			"Name": "HoverPlugin",
+			"Type": "Developer",
+			"LoadingPhase": "Default"
+		}
+	],
+	"EnabledByDefault": true,
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"Installed": false
+}
