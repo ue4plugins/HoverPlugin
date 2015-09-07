@@ -43,6 +43,7 @@ In order to use the Blueprint version of the hover component, copy the file
 */Content/BlueprintHoverComponent.uasset* into your project's */Content* directory.
 
 Perform the following steps to test the components:
+
 1. Drag a *Sphere* or other StaticMeshActor from the *Basic Shapes* tab into your level
 2. Select the actor, lift it off the floor a bit, and click the *Add Component* button in the *Details* panel
 3. Add the desired hover component, i.e. *SimpleHoverComponent* or *BlueprintHoverComponent*
