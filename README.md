@@ -36,6 +36,9 @@ If you use it as an Engine plug-in, clone this repository into the
 */Engine/Plugins/Media* directory and compile your game. Full Unreal Engine 4
 source code from GitHub (4.9 or higher) is required for this to work.
 
+After compiling the plug-in, you have to **enable it** in Unreal Editor's plug-in
+browser.
+
 In order to use the Blueprint version of the hover component, copy the file
 */Content/BlueprintHoverComponent.uasset* into your project's */Content* directory.
 
@@ -50,3 +53,4 @@ or email us at info@headcrash.industries
 ## References
 
 * [Unreal Engine Forum Thread](https://forums.unrealengine.com/showthread.php?81573-GDCE-2015-Blueprint-Components-to-C)
+* [Introduction to UE4 Plugins](https://wiki.unrealengine.com/An_Introduction_to_UE4_Plugins)
