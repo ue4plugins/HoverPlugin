@@ -52,5 +52,5 @@ or email us at info@headcrash.industries
 
 ## References
 
-* [Unreal Engine Forum Thread](https://forums.unrealengine.com/showthread.php?81573-GDCE-2015-Blueprint-Components-to-C)
+* [GDCE 2015: Blueprint Components to C++](https://forums.unrealengine.com/showthread.php?81573-GDCE-2015-Blueprint-Components-to-C)
 * [Introduction to UE4 Plugins](https://wiki.unrealengine.com/An_Introduction_to_UE4_Plugins)
