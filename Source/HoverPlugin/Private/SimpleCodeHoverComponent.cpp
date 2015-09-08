@@ -71,7 +71,7 @@ void USimpleCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 	// have to calculate the start and end position for the trace. The SceneComponent
 	// super class has a field called 'ComponentToWorld' which is a transformation
 	// matrix that contains the component's location and orientation. This is equivalent
-	// to the 'GetWorldLocation' call in the Blueprint. // The trace end point is simply
+	// to the 'GetWorldLocation' call in the Blueprint. The trace end point is simply
 	// underneath the component's location.
 
 	const FVector Start = ComponentToWorld.GetLocation();
@@ -102,7 +102,7 @@ void USimpleCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 		PrimitiveComponent->AddForce(SpringForce, NAME_None, false);
 
 		// The BP node for the line trace has an option to draw a red debug line for the,
-		// trace and a red point for the hit point. We can implement in C++ using the
+		// trace and a red point for the hit point. We can implement this in C++ using the
 		// helper functions in DrawDebugHelpers.h
 
 		::DrawDebugLine(World, Start, HitResult.Location, FColor::Red, false, 0.0f);
