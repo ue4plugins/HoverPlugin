@@ -50,7 +50,7 @@ void UAsyncCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 	// operation, and reading back the resulting data when the trace is complete.
 	// Asynchronous traces do not complete right away. For simplicity, we will
 	// process the results in the next tick. This means that our traces are one
-	// frame off, but for something like hover component this does not matter.
+	// frame off, but for something like a hover effect this does not matter.
 
 	// In order to not overwrite the asynchronous trace handle returned from the
 	// previous trace, we first process the trace results of the last frame.
