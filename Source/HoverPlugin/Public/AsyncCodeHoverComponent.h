@@ -25,6 +25,14 @@ class HOVERPLUGIN_API UAsyncCodeHoverComponent
 {
 	GENERATED_BODY()
 
+	/** The maximum hover force to apply. */
+	UPROPERTY(EditAnywhere, Category="Hover")
+	float MaxHoverForce;
+
+	/** The maximum distance at which the hover force applies. */
+	UPROPERTY(EditAnywhere, Category="Hover")
+	float MaxHoverForceDistance;
+
 public:
 
 	/** Create and initialize a new instance. */
@@ -49,14 +57,6 @@ protected:
 	void InitializePrimitiveComponent();
 
 private:
-
-	/** The maximum hover force to apply. */
-	UPROPERTY(EditAnywhere)
-	float MaxHoverForce;
-
-	/** The maximum distance at which the hover force applies. */
-	UPROPERTY(EditAnywhere)
-	float MaxHoverForceDistance;
 
 	/** The primitive component that should hover. */
 	UPROPERTY()
