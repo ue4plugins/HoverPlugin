@@ -6,7 +6,7 @@
 
 
 USimpleCodeHoverComponent::USimpleCodeHoverComponent()
-	: MaxHoverForce(10000.0f)
+	: MaxHoverForce(10000.0f * 109.456337f)
 	, MaxHoverForceDistance(200.0f)
 	, PrimitiveComponent(nullptr)
 {
@@ -14,6 +14,13 @@ USimpleCodeHoverComponent::USimpleCodeHoverComponent()
 	// Other than the auto-generated code below that enables the BeginPlay() and
 	// Tick() functions to be called, it simply initializes the component's private
 	// properties, such as MaxHoverForce with reasonable default values.
+
+	// We assume that this simple hover component will be attached to a Sphere
+	// static mesh actor in the Editor, which has a mass of 109.456337 kg. Like the
+	// Blueprint version, this component applies the hover force in a way that is
+	// dependent on the mass. This flaw has been improved in UAsyncHoverComponent,
+	// but in order make this simple hover component behave in the exact same way,
+	// we have to scale the default value of MaxHoverForce accordingly.
 
 	bWantsBeginPlay = true;
 	PrimaryComponentTick.bCanEverTick = true;
@@ -93,19 +100,19 @@ void USimpleCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 		// We can now calculate the hover force that should be applied to the parent
 		// component. The following lines are equivalent to the yellow BP sub-graph.
 
-		const float Distance = (HitResult.ImpactPoint - Start).Size();
+		const float Distance = (Start - HitResult.ImpactPoint).Size();
 		const float Ratio = FMath::Clamp(Distance / MaxHoverForceDistance, 0.0f, 1.0f);
-		const FVector SpringForce = (1.0f - Ratio) * MaxHoverForce * HitResult.Normal;
+		const FVector Force = (1.0f - Ratio) * MaxHoverForce * HitResult.ImpactNormal;
 
 		// Finally, we apply the calculated force to the component.
 
-		PrimitiveComponent->AddForce(SpringForce, NAME_None, false);
+		PrimitiveComponent->AddForce(Force, NAME_None, false);
 
 		// The BP node for the line trace has an option to draw a red debug line for the,
 		// trace and a red point for the hit point. We can implement this in C++ using the
 		// helper functions in DrawDebugHelpers.h
 
-		::DrawDebugLine(World, Start, HitResult.Location, FColor::Red, false, 0.0f);
+		::DrawDebugLine(World, Start, HitResult.ImpactPoint, FColor::Red, false, 0.0f);
 		::DrawDebugPoint(World, HitResult.ImpactPoint, 16.0f, FColor::Red, false, 0.0f);
 	}
 }

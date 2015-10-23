@@ -64,8 +64,8 @@ void UAsyncCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 			const FHitResult& HitResult = TraceDatum.OutHits[0];
 
 			const float Distance = (Start - HitResult.ImpactPoint).Size();
-			const float Ratio = Distance / MaxHoverForceDistance;
-			const FVector Force = (1.0f - FMath::Clamp(Ratio, 0.0f, 1.0f)) * MaxHoverForce * HitResult.ImpactNormal;
+			const float Ratio = FMath::Clamp(Distance / MaxHoverForceDistance, 0.0f, 1.0f);
+			const FVector Force = (1.0f - Ratio) * MaxHoverForce * HitResult.ImpactNormal;
 
 			// Previously, we treated the force as is. Now we interpret it as an
 			// acceleration instead. The latter has the advantage that the force
@@ -74,7 +74,7 @@ void UAsyncCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 
 			PrimitiveComponent->AddForce(Force, NAME_None, true);
 
-			::DrawDebugLine(World, Start, End, FColor::Red, false, 0.0f);
+			::DrawDebugLine(World, Start, HitResult.ImpactPoint, FColor::Red, false, 0.0f);
 			::DrawDebugPoint(World, HitResult.ImpactPoint, 16.0f, FColor::Red, false, 0.0f);
 		}
 	}
