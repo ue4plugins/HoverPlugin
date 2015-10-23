@@ -38,7 +38,7 @@ void UAsyncCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 	}
 
 	const FVector Start = ComponentToWorld.GetLocation();
-	const FVector End = FVector(Start.X, Start.Y, -MaxHoverForceDistance);
+	const FVector End = FVector(Start.X, Start.Y, Start.Z - MaxHoverForceDistance);
 
 	// One drawback of the line trace implementation in USimpleCodeHoverComponent
 	// is that the trace takes place on the precious game thread. Traces are not
