@@ -44,7 +44,7 @@ In order to use the Blueprint version of the hover component, copy the file
 
 Perform the following steps to test the components:
 
-1. Drag a *Sphere* or other StaticMeshActor from the *Basic Shapes* tab into your level
+1. Drag a *Sphere* from the *Basic Shapes* tab into your level
 2. Select the actor, lift it off the floor a bit, and click the *Add Component* button in the *Details* panel
 3. Add the desired hover component, i.e. *SimpleHoverComponent* or *BlueprintHoverComponent*
 4. Make sure the *Mobility* of the actor's StaticMeshComponent is set to *Movable*
@@ -52,6 +52,13 @@ Perform the following steps to test the components:
 
 Your sphere should now be hovering above the floor, slowly bouncing up and down into
 a stable position.
+
+Please note that the *HoverForce* value in the *SimpleHoverComponent* depends on
+the mass of the static mesh actor, and its default value has been adjusted to
+match the mass of a Sphere actor, which is currently 109.456337 kg. If you use
+*SimpleHoverComponent* with a mesh other than the default Sphere then you have
+to set its HoverForce to: *HoverForce = Mass * 10000.0* instead, or otherwise
+the physics won't match those of *AsyncHoverComponent* if you compare the two.
 
 
 ## Support
