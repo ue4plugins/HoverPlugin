@@ -2,7 +2,6 @@
 
 #include "HoverPluginPrivatePCH.h"
 #include "AsyncCodeHoverComponent.h"
-#include "DrawDebugHelpers.h"
 
 
 UAsyncCodeHoverComponent::UAsyncCodeHoverComponent()
@@ -10,7 +9,6 @@ UAsyncCodeHoverComponent::UAsyncCodeHoverComponent()
 	, MaxHoverForceDistance(200.0f)
 	, PrimitiveComponent(nullptr)
 {
-	bWantsBeginPlay = true;
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
@@ -33,6 +31,13 @@ void UAsyncCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	if (PrimitiveComponent == nullptr)
+	{
+		return;
+	}
+
+	UWorld* World = GetWorld();
+
+	if (World == nullptr)
 	{
 		return;
 	}
@@ -82,7 +87,7 @@ void UAsyncCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 	// Now that the previous frame's results are processed, we can issue a new trace.
 	// The new returned trace handle will be used in the tick of the next frame.
 
-	AsyncTrace = World->AsyncLineTraceByChannel(Start, End, ECC_WorldDynamic, FCollisionQueryParams(TEXT("AsyncHoverTrace")));
+	AsyncTrace = World->AsyncLineTraceByChannel(EAsyncTraceType::Single, Start, End, ECC_WorldDynamic, FCollisionQueryParams(TEXT("AsyncHoverTrace")));
 }
 
 
@@ -105,7 +110,7 @@ void UAsyncCodeHoverComponent::InitializePrimitiveComponent()
 	// component, we can shorten the code by using the 'AttachParent' member
 	// of 'SceneComponent', which already caches this pointer.
 
-	PrimitiveComponent = Cast<UPrimitiveComponent>(AttachParent);
+	PrimitiveComponent = Cast<UPrimitiveComponent>(GetAttachParent());
 
 	if (PrimitiveComponent != nullptr)
 	{

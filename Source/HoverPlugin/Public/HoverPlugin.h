@@ -5,12 +5,13 @@
 #include "ModuleManager.h"
 
 
-
-class FHoverPluginModule : public IModuleInterface
+class FHoverPluginModule
+	: public IModuleInterface
 {
 public:
 
-	/** IModuleInterface implementation */
+	//~ IModuleInterface interface
+
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 };

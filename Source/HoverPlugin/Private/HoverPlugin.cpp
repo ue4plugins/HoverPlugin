@@ -1,10 +1,11 @@
 // Some copyright should be here...
 
 #include "HoverPluginPrivatePCH.h"
-
+#include "HoverPlugin.h"
 
 
 #define LOCTEXT_NAMESPACE "FHoverPluginModule"
+
 
 void FHoverPluginModule::StartupModule()
 {
@@ -16,6 +17,7 @@ void FHoverPluginModule::ShutdownModule()
 	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
 	// we call this function before unloading the module.
 }
+
 
 #undef LOCTEXT_NAMESPACE
 	

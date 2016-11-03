@@ -13,7 +13,7 @@ live coding demonstration at GDCE Europe 2015. It accompanies the corresponding
 
 ## Supported Platforms
 
-This plug-in was last built against **Unreal Engine 4.9** and should work on
+This plug-in was last built against **Unreal Engine 4.14** and should work on
 all platforms.
 
 

@@ -2,7 +2,6 @@
 
 #include "HoverPluginPrivatePCH.h"
 #include "SimpleCodeHoverComponent.h"
-#include "DrawDebugHelpers.h"
 
 
 USimpleCodeHoverComponent::USimpleCodeHoverComponent()
@@ -11,9 +10,9 @@ USimpleCodeHoverComponent::USimpleCodeHoverComponent()
 	, PrimitiveComponent(nullptr)
 {
 	// This constructor function is called when a hover component is instantiated.
-	// Other than the auto-generated code below that enables the BeginPlay() and
-	// Tick() functions to be called, it simply initializes the component's private
-	// properties, such as MaxHoverForce with reasonable default values.
+	// Other than the auto-generated code below that enables the Tick() functions
+	// to be called, it simply initializes the component's private properties,
+	// such as MaxHoverForce with reasonable default values.
 
 	// We assume that this simple hover component will be attached to a Sphere
 	// static mesh actor in the Editor, which has a mass of 109.456337 kg. Like the
@@ -22,7 +21,6 @@ USimpleCodeHoverComponent::USimpleCodeHoverComponent()
 	// but in order make this simple hover component behave in the exact same way,
 	// we have to scale the default value of MaxHoverForce accordingly.
 
-	bWantsBeginPlay = true;
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
@@ -70,6 +68,15 @@ void USimpleCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 	// This is equivalent to the gray 'Primitive Check' block in the Blueprint.
 
 	if (PrimitiveComponent == nullptr)
+	{
+		return;
+	}
+
+	// Get the world that this component resides in, so we can run queries against it.
+
+	UWorld* World = GetWorld();
+
+	if (World == nullptr)
 	{
 		return;
 	}
