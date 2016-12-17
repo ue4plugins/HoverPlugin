@@ -1,8 +1,11 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
 #include "Components/SceneComponent.h"
+#include "UObject/ObjectMacros.h"
+#include "WorldCollision.h"
+
 #include "AsyncCodeHoverComponent.generated.h"
 
 
@@ -19,7 +22,7 @@
  *
  * See the code comments for an explanation of the changes.
  */
-UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
+UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class HOVERPLUGIN_API UAsyncCodeHoverComponent
 	: public USceneComponent
 {
@@ -40,14 +43,14 @@ public:
 
 public:
 
-	// UComponent interface
+	//~ UComponent interface
 
 	virtual void BeginPlay() override;
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 public:
 
-	// USceneComponent interface
+	//~ USceneComponent interface
 
 	virtual void OnAttachmentChanged() override;
 

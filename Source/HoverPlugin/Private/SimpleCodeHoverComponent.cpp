@@ -1,7 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 
-#include "HoverPluginPrivatePCH.h"
 #include "SimpleCodeHoverComponent.h"
+
+#include "DrawDebugHelpers.h"
 
 
 USimpleCodeHoverComponent::USimpleCodeHoverComponent()

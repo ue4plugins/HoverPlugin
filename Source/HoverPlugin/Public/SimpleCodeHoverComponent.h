@@ -1,8 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
 #include "Components/SceneComponent.h"
+#include "UObject/ObjectMacros.h"
+
 #include "SimpleCodeHoverComponent.generated.h"
 
 
@@ -32,7 +34,7 @@ public:
 
 public:
 
-	// UComponent interface
+	//~ UComponent interface
 
 	virtual void BeginPlay() override;
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;

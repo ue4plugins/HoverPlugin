@@ -1,7 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 
-#include "HoverPluginPrivatePCH.h"
 #include "AsyncCodeHoverComponent.h"
+
+#include "DrawDebugHelpers.h"
 
 
 UAsyncCodeHoverComponent::UAsyncCodeHoverComponent()
@@ -85,9 +86,12 @@ void UAsyncCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 	}
 
 	// Now that the previous frame's results are processed, we can issue a new trace.
-	// The new returned trace handle will be used in the tick of the next frame.
+	// The new returned trace handle will be used in the tick of the next frame. For
+	// debugging purposes we provide a trace tag, which is just a user defined name
+	// for the trace.
 
-	AsyncTrace = World->AsyncLineTraceByChannel(EAsyncTraceType::Single, Start, End, ECC_WorldDynamic, FCollisionQueryParams(TEXT("AsyncHoverTrace")));
+	static FName AsyncHoverTraceTag("AsyncHoverTrace");
+	AsyncTrace = World->AsyncLineTraceByChannel(EAsyncTraceType::Single, Start, End, ECC_WorldDynamic, FCollisionQueryParams(AsyncHoverTraceTag));
 }
 
 
