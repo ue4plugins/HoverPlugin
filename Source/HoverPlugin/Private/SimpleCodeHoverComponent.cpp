@@ -102,8 +102,13 @@ void USimpleCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 	// whether the trace should stop as soon as it hits something or return all hits,
 	// and you can also specify what types of objects should be considered for collisions.
 	// The following line is equivalent to the LineTraceByChannel call in the Blueprint.
+	
+	// For debugging purposes we provide a trace tag, which is just a user defined name
+	// for the trace.
 
-	if (World->LineTraceSingleByChannel(HitResult, Start, End, ECC_WorldDynamic, FCollisionQueryParams(TEXT("HoverComponentTrace"))))
+	static FName AsyncHoverTraceTag("HoverComponentTrace");
+
+	if (World->LineTraceSingleByChannel(HitResult, Start, End, ECC_WorldDynamic, FCollisionQueryParams(AsyncHoverTraceTag)))
 	{
 		// We can now calculate the hover force that should be applied to the parent
 		// component. The following lines are equivalent to the yellow BP sub-graph.

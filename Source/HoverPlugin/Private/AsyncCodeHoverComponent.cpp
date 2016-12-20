@@ -86,11 +86,10 @@ void UAsyncCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 	}
 
 	// Now that the previous frame's results are processed, we can issue a new trace.
-	// The new returned trace handle will be used in the tick of the next frame. For
-	// debugging purposes we provide a trace tag, which is just a user defined name
-	// for the trace.
+	// The new returned trace handle will be used in the tick of the next frame.
 
 	static FName AsyncHoverTraceTag("AsyncHoverTrace");
+
 	AsyncTrace = World->AsyncLineTraceByChannel(EAsyncTraceType::Single, Start, End, ECC_WorldDynamic, FCollisionQueryParams(AsyncHoverTraceTag));
 }
 
