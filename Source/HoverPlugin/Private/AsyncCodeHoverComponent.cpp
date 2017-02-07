@@ -2,6 +2,8 @@
 
 #include "AsyncCodeHoverComponent.h"
 
+#include "Classes/Components/PrimitiveComponent.h"
+#include "Classes/Engine/World.h"
 #include "DrawDebugHelpers.h"
 
 

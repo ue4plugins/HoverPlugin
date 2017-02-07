@@ -2,6 +2,9 @@
 
 #include "SimpleCodeHoverComponent.h"
 
+#include "Classes/Components/PrimitiveComponent.h"
+#include "Classes/Engine/World.h"
+#include "Classes/GameFramework/Actor.h"
 #include "DrawDebugHelpers.h"
 
 
