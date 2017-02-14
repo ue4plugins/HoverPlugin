@@ -4,7 +4,7 @@ using UnrealBuildTool;
 
 public class HoverPlugin : ModuleRules
 {
-	public HoverPlugin(TargetInfo Target)
+	public HoverPlugin(ReadOnlyTargetRules Target) : base(Target)
 	{
 		
 		PublicIncludePaths.AddRange(
