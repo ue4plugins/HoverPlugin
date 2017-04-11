@@ -6,14 +6,15 @@ public class HoverPlugin : ModuleRules
 {
 	public HoverPlugin(ReadOnlyTargetRules Target) : base(Target)
 	{
-		
-		PublicIncludePaths.AddRange(
+        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
+        PublicIncludePaths.AddRange(
 			new string[] {
 				"HoverPlugin/Public"
 				
 				// ... add public include paths required here ...
 			}
-			);
+		);
 				
 		
 		PrivateIncludePaths.AddRange(
@@ -21,8 +22,8 @@ public class HoverPlugin : ModuleRules
 				"HoverPlugin/Private",
 				
 				// ... add other private include paths required here ...
-			}
-			);
+    		}
+		);
 			
 		
 		PublicDependencyModuleNames.AddRange(
@@ -35,7 +36,7 @@ public class HoverPlugin : ModuleRules
 				
 				// ... add other public dependencies that you statically link with here ...
 			}
-			);
+		);
 			
 		
 		PrivateDependencyModuleNames.AddRange(
@@ -44,7 +45,7 @@ public class HoverPlugin : ModuleRules
 				"Slate", "SlateCore"
 				// ... add private dependencies that you statically link with here ...	
 			}
-			);
+		);
 		
 		
 		DynamicallyLoadedModuleNames.AddRange(
@@ -53,6 +54,6 @@ public class HoverPlugin : ModuleRules
 				
 				// ... add any modules that your module loads dynamically here ...
 			}
-			);
+		);
 	}
 }
