@@ -6,6 +6,9 @@
 #include "Classes/Engine/World.h"
 #include "Classes/GameFramework/Actor.h"
 #include "DrawDebugHelpers.h"
+#include "Engine/EngineTypes.h"
+#include "Math/Vector.h"
+#include "UObject/NameTypes.h"
 
 
 USimpleCodeHoverComponent::USimpleCodeHoverComponent()

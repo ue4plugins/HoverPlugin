@@ -5,6 +5,9 @@
 #include "Classes/Components/PrimitiveComponent.h"
 #include "Classes/Engine/World.h"
 #include "DrawDebugHelpers.h"
+#include "Math/Vector.h"
+#include "UObject/NameTypes.h"
+#include "WorldCollision.h"
 
 
 UAsyncCodeHoverComponent::UAsyncCodeHoverComponent()
