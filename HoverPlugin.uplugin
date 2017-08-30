@@ -1,8 +1,8 @@
 {
 	"FileVersion": 3,
-	"Version": 7,
-	"VersionName": "7.0",
-	"EngineVersion" : "4.17.0",
+	"Version": 8,
+	"VersionName": "8.0",
+	"EngineVersion" : "4.18.0",
 	"FriendlyName": "HoverPlugin",
 	"Description": "Demonstrates how to convert a BP component to a C++ component (as presented by Zak Parrish and Gerke Max Preussner at GDCE Europe 2015).",
 	"Category": "GDCE15",
