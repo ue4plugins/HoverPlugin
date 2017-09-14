@@ -95,7 +95,7 @@ void USimpleCodeHoverComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 	// to the 'GetWorldLocation' call in the Blueprint. The trace end point is simply
 	// underneath the component's location.
 
-	const FVector Start = ComponentToWorld.GetLocation();
+	const FVector Start = GetComponentTransform().GetLocation();
 	const FVector End = FVector(Start.X, Start.Y, Start.Z - MaxHoverForceDistance);
 
 	// Now we are ready to perform the actual trace. The result of a trace operation
